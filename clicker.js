@@ -466,7 +466,7 @@ window.onload = function() {
 
 function initClicker08() {
 	
-	var css, c, tab, tabv, t = 0, cbs, cb, cbPos, enlightened = 0, wpd = 150000, cSize = 256, cBg = "#CC9966", cbBg = "#663300", bg = "#CCCCCC",
+	var css, c, tab, tabn, tabv, t = 0, cbs, cb, cbPos, enlightened = 0, wpd = 150000, cSize = 256, cBg = "#CC9966", cbBg = "#663300", bg = "#CCCCCC",
 		getRandCbSize = function(rn) {
 			return (rn + 0.5) * cSize / 8 + "px";
 		},
@@ -480,60 +480,57 @@ function initClicker08() {
 			return (Math.floor(Math.random() * 256)).toString(16);
 		};
 	
-	document.body.appendChild(c = document.createElement("div"));
-	document.body.appendChild(tab = document.createElement("h2"));
-	tab.innerHTML = "<p>Your wasted time: </p>";
-	tab.appendChild(tabv = document.createElement("p"));
+	document.body.append(c = document.createElement("div"), tab = document.createElement("h2"));
+	tab.append(tabn = document.createElement("p"), tabv = document.createElement("p"));
 	tabv.innerHTML = t;
+	tabn.innerHTML = "Your wasted time: ";
 	
-	document.head.appendChild(css = document.createElement("style"));
-	
-	document.documentElement.style.cssText += " height: 100%; position: relative;";
-	document.body.style.cssText += " width: 100%; height: 100%; position: relative; margin: 0; padding: 0; font: " + (cSize / 16) + "px Arial, sans-serif; background: " + bg + ";";
-	c.style.height = c.style.width = cSize + "px";
-	tab.style.position = c.style.position = "relative";
-	tabv.style.position = tab.firstChild.style.position = "absolute";
-	c.style.margin = cSize / 4 + "px auto";
-	tabv.style.left = tab.firstChild.style.right = "50.67%";
-	tabv.style.verticalAlign = tab.firstChild.style.verticalAlign = tab.style.textAlign = "center";
-	c.style.cssText += " border-radius: " + (cSize / 2) + "px; cursor: pointer; background: " + cBg + ";";
-	
-	while((cbs = c.querySelectorAll(".cbs")).length < Math.random() * 5 + 2) {
+	while(c.childElementCount < Math.random() * 5 + 2) {
 		cb = c.appendChild(document.createElement("div"));
-		cb.className = "cbs";
+		cb.className = "cb";
 		cb.style.width = getRandCbSize(Math.random());
 		cb.style.height = getRandCbSize(Math.random());
-		cb.style.position = "absolute";
 		cb.style.top = getRandCbPos(cbPos = Math.random() * 2 * Math.PI, 1);
 		cb.style.left = getRandCbPos(cbPos, 0);
 		cb.style.borderRadius = getRandCbBlunt(Math.random()) + getRandCbBlunt(Math.random());
-		cb.style.background = cbBg;
 	}
+	
+	document.head.appendChild(css = document.createElement("style")).appendChild(document.createTextNode(
+		"html, body { height: 100%; margin: 0; padding: 0; }"
+		+ " html { overflow: hidden; }"
+		+ " body { width: 100%; overflow: auto; font: " + (cSize / 16) + "px \"Open Sans\", Ubuntu, Arial, sans-serif; background: " + bg + "; }"
+		+ " body .c, body .tab { position: relative; text-align: center; }"
+		+ " body .c { width: " + cSize + "px; height: " + cSize + "px; margin: " + (cSize / 4) + "px auto; border-radius: 50%; cursor: pointer; background: " + cBg + "; box-shadow: 0 0 " + (cSize / 512) + "px 0 currentcolor; }"
+		+ " body .cb, body .tab p { position: absolute; vertical-align: center; }"
+		+ " body .tabn { right: 50.67%; }"
+		+ " body .tabv { left: 50.67%; }"
+		+ " body .cb { background: " + cbBg + "; }"
+		));
+	
+	c.className = "c";
+	tab.className = "tab";
+	tabn.className = "tabn";
+	tabv.className = "tabv";
 	
 	var enlightClicker = function() {
 		
 		++enlightened;
 		document.body.style.background = "#000000";
-		for(cb of cbs) cb.style.background = document.body.style.background;
+		for(cb of c.children) cb.style.background = document.body.style.background;
 		document.body.style.color = "#FFFFFF";
-		c.style.background = "#CCCCCC";
+		c.style.background = bg;
 		setTimeout(function() {
 			document.body.removeChild(c);
 			tab.style.textShadow = "0 0 0.8em #FFFFFF";
 			setTimeout(function() {
-				document.body.style.color = "#999999";
-				document.body.style.background = "#666666";
-				document.body.style.textShadow = "0 0 0.8em #999999";
+				document.body.style.cssText = "color: #999999; background: #666666; text-shadow: 0 0 0.8em #999999; box-shadow: inset 0 0 " + (cSize / 4) + "px 0 #000000";
 				tab.style.textShadow = "inherit";
-				document.body.style.boxShadow = "inset 0 0 " + (cSize / 4) + "px 0 #000000";
 				setTimeout(function() {
 					document.body.removeChild(tab);
-					document.body.style.color = "#FFFFFF";
-					document.body.style.background = "#000000";
-					document.body.style.boxShadow = document.body.style.textShadow = "none";
+					document.body.style.cssText = "color: #FFFFFF; background: #000000; text-shadow: none; box-shadow: none";
 				}, 10800000 / wpd);
 			}, 60000);
-		}, 60000);
+		}, 60000 * wpd);
 		
 	};
 	
