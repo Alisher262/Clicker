@@ -1,5 +1,4 @@
 /*
-Кликер для Андрея на стриме.
 jsbin.com/dajeqiq
 github.com/Alisher262/ClickerForDron83
 */
