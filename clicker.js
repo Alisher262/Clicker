@@ -11,11 +11,11 @@ github.com/Alisher262/ClickerForDron83
 
 
 
-function initClicker02() { document.body.appendChild(var c = document.createElement("div")); c.style.width = "256px"; c.style.height = "256px"; c.style.background = "#cc9966"; c.style.borderRadius = "128px"; c.style.margin = "64px auto"; var lvl = 1; c.onclick = function() { lvl += lvl } }
+// (function initClicker02() { document.body.appendChild(var c = document.createElement("div")); c.style.width = "256px"; c.style.height = "256px"; c.style.background = "#cc9966"; c.style.borderRadius = "128px"; c.style.margin = "64px auto"; var lvl = 1; c.onclick = function() { lvl += lvl } })();
 
 
 
-function initClicker03() { document.body.appendChild(var c = document.createElement("div")); c.style.width = "256px"; c.style.height = "256px"; var cBgColor = "#CC9966"; c.style.background = cBgColor; c.style.borderRadius = "128px"; c.style.margin = "64px auto"; document.body.appendChild(var t = document.createElement("h2")); t.style.textAlign = "center"; var lvl = 1; var getRand256 = function() { return (Math.floor(Math.random() * 256)).toString(16) }; c.onclick = function() { lvl += lvl; t.innerHTML = "Your wasted time: " + lvl; t.style.color = "#" + getRand256() + getRand256() + getRand256(); c.style.background = "#996633"; setTimeout(c.style.background = cBgColor, 50) }; setInterval(document.body.onmouseover = function() { t.innerHTML = "Your wasted time: " + ++lvl }, 1618); }
+// (function initClicker03() { document.body.appendChild(var c = document.createElement("div")); c.style.width = "256px"; c.style.height = "256px"; var cBgColor = "#CC9966"; c.style.background = cBgColor; c.style.borderRadius = "128px"; c.style.margin = "64px auto"; document.body.appendChild(var t = document.createElement("h2")); t.style.textAlign = "center"; var lvl = 1; var getRand256 = function() { return (Math.floor(Math.random() * 256)).toString(16) }; c.onclick = function() { lvl += lvl; t.innerHTML = "Your wasted time: " + lvl; t.style.color = "#" + getRand256() + getRand256() + getRand256(); c.style.background = "#996633"; setTimeout(c.style.background = cBgColor, 50) }; setInterval(document.body.onmouseover = function() { t.innerHTML = "Your wasted time: " + ++lvl }, 1618); })();
 
 
 
@@ -119,7 +119,7 @@ function initClicker04() {
 	
 }
 
-window.onload = initClicker04;
+// window.onload = initClicker04;
 
 
 
@@ -214,7 +214,7 @@ function initClicker05() {
 	
 }
 
-window.onload = initClicker05;
+// window.onload = initClicker05;
 
 
 
@@ -286,7 +286,7 @@ function initClicker06() {
 			setTimeout(function() {
 				document.body.removeChild(h2);
 			}, 60000);
-		}, 6000); // 60000 * wpd);
+		}, 60000 * wpd);
 		
 	};
 	
@@ -311,7 +311,7 @@ function initClicker06() {
 	
 }
 
-window.onload = initClicker06;
+// window.onload = initClicker06;
 
 
 
@@ -425,7 +425,7 @@ function initClicker07(wpd, cSize, cBg, cbBg, bg) {
 			setTimeout(function() {
 				document.body.removeChild(h2);
 			}, 60000);
-		}, 6000); // 60000 * wpd);
+		}, 60000 * wpd);
 		
 	};
 	
@@ -451,11 +451,12 @@ function initClicker07(wpd, cSize, cBg, cbBg, bg) {
 	return db;
 	
 }
-
+/*
 var clicker;
 window.onload = function() {
 	clicker = initClicker07();
 }
+*/
 
 
 
@@ -466,7 +467,7 @@ window.onload = function() {
 
 function initClicker08() {
 	
-	var c, tab, tabv, t = 0, cbs, cb, cbPos, enlightened = 0, wpd = 150000, cSize = 256, cBg = "#CC9966", cbBg = "#663300", bg = "#CCCCCC",
+	var css, c, tab, tabv, t = 0, cbs, cb, cbPos, enlightened = 0, wpd = 150000, cSize = 256, cBg = "#CC9966", cbBg = "#663300", bg = "#CCCCCC",
 		getRandCbSize = function(rn) {
 			return (rn + 0.5) * cSize / 8 + "px";
 		},
