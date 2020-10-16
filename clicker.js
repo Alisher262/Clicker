@@ -466,7 +466,7 @@ window.onload = function() {
 
 function initClicker08() {
 	
-	var css, c, tab, tabn, tabv, t = 0, cbs, cb, cbPos, enlightened = 0, wpd = 150000, cSize = 256, cBg = "#CC9966", cbBg = "#663300", bg = "#CCCCCC",
+	var c, tab, tabn, tabv, css, cb, cbPos, t = 0, wpd = 150000, enlightened = 0, cSize = 256, cBg = "#CC9966", cbBg = "#663300", bg = "#CCCCCC",
 		getRandCbSize = function(rn) {
 			return (rn + 0.5) * cSize / 8 + "px";
 		},
